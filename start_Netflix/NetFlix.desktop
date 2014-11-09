@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Netflix
+Comment=Aplicación de escritorio para la reproducción de Netflix desde Chrome
+Exec=google-chrome-stable --app=http://www.netflix.com
+Icon=/usr/share/pixmaps/netflix-icon.png
+Terminal=false
+Type=Application
+Categories=Network;
+Path=
+StartupNotify=false
