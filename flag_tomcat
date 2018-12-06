@@ -1,1 +1,1 @@
--XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled -XX:+CMSPermGenSweepingEnable
+-server -Xms256m -Xmx512m -XX:MaxPermSize=384m -Dfile.encoding=UTF-8 -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:+UseGCOverheadLimit -Xss32m
