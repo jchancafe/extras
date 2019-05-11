@@ -1,4 +1,19 @@
- def registrar_detalle_documento(self, detalle_item, invoice_id):
+# -*- coding: utf-8 -*-
+from odoo import api, fields, models
+from contextlib import closing
+from datetime import datetime
+import json
+import cx_Oracle
+from cx_Oracle import Error
+class SyncDataIn(models.Model):
+    _name = 'sync.data.in'
+    _order = 'fecha_proceso'
+    name = fields.Char('Numero de Transaccion')
+    fecha_proceso = fields.Datetime('Fecha proceso')
+    tipo = fields.Selection([('I', 'Ingreso'), ('S','Salida')], 'tipo de proceso')
+    datas_json = fields.Text("JSON Data", readonly=True)
+    
+def registrar_detalle_documento(self, detalle_item, invoice_id):
         existe_error = False
         for detalle in detalle_item:
             cabecera_id = detalle.get('id')
@@ -50,23 +65,6 @@
 
 def registrar_documento(self, item):
         REGISTRO_TERMINADO = 'T'
-# -*- coding: utf-8 -*-
-from odoo import api, fields, models
-from contextlib import closing
-from datetime import datetime
-import json
-import cx_Oracle
-from cx_Oracle import Error
-
-class SyncDataIn(models.Model):
-    _name = 'sync.data.in'
-    _order = 'fecha_proceso'
-
-    name = fields.Char('Numero de Transaccion')
-    fecha_proceso = fields.Datetime('Fecha proceso')
-    tipo = fields.Selection([('I', 'Ingreso'), ('S','Salida')], 'tipo de proceso')
-    datas_json = fields.Text("JSON Data", readonly=True)
-
         existe_error = False
         cabecera_id = item.get('id')
         partner_id = self.obtener_receptor(item.get('receptor'), item.get('id'))
