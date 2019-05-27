@@ -1,4 +1,5 @@
 Instrucciones para odoo12 y ubuntu 16:
+---
 apt-get update && apt upgrade
 apt-get install python3-pip
 pip3 install --upgrade pip
@@ -44,8 +45,7 @@ File "/usr/local/lib/python3.5/dist-packages/pip/_vendor/urllib3/contrib/pyopens
 rm -rf /usr/lib/python3/dist-packages/OpenSSL/
 rm -rf /usr/lib/python3/dist-packages/pyOpenSSL-0.15.1.egg-info/
 pip3.5 install  pyopenssl
-------------------
-
+-----------
 python3 -m pip install --upgrade pip==9.0.3
 ------------------
 pip3.5 install --upgrade cryptography
